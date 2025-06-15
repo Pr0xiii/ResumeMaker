@@ -2,6 +2,7 @@
 <html>
     <head>
         <link href="style.css" rel="stylesheet">
+        <script async src="index.js"></script>
         <title>Resume Maker</title>
     </head>
     <body>
@@ -25,7 +26,7 @@
                         </div>
                         <div class="form-item">
                             <label for="email">Email address :</label>
-                            <input type="email" name="email" id="email" required />
+                            <input type="email" name="email" id="email" required autocomplete="on"/>
                         </div>
                         <div class="form-item">
                             <label for="telephone">Telephone Number :</label>
@@ -91,8 +92,8 @@
             </div>
         </main>
         <footer>
-            <button>Save your resume</button>
-            <button>Back to the top</button>
+            <button>Transform the resume to PDF</button>
+            <button id="top-button">Back to the top</button>
         </footer>
     </body>
 </html>

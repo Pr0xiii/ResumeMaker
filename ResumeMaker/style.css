@@ -4,7 +4,7 @@
     font-family: Helvetica, sans-serif;
 }
 body {
-    margin: auto;
+    margin: 50px auto;
     width: 75%;
     text-align: center;
     background-color: lightgray;
@@ -35,6 +35,7 @@ footer {
     display: flex;
     justify-content: space-around;
     height: 40px;
+    margin-bottom: 50px;
 }
 footer button {
     padding: 10px;

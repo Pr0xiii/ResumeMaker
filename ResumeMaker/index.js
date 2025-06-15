@@ -7,49 +7,56 @@ let languageList = [];
 let skillList = [];
 
 function addEducation(event) {
-    event.preventDefault();
-
     var itemDiv = document.createElement('div');
     itemDiv.className = 'form-item';
     itemDiv.id = `${educationList.length}`;
 
     var schoolLabel = document.createElement('label');
-    schoolLabel.for = 'schoolName';
+    schoolLabel.htmlFor = `schoolName+${educationList.length}`;
     schoolLabel.innerHTML = 'School Name :';
 
     var schoolInput = document.createElement('input');
     schoolInput.type = 'text';
-    schoolInput.name = 'schoolName';
-    schoolInput.id = 'schoolName';
+    schoolInput.name = `schoolName+${educationList.length}`;
+    schoolInput.id = `schoolName+${educationList.length}`;
 
     var diplomaLabel = document.createElement('label');
-    diplomaLabel.for = 'diploma';
+    diplomaLabel.htmlFor = `diploma+${educationList.length}`;
     diplomaLabel.innerHTML = 'Diploma :';
 
     var diplomaInput = document.createElement('input');
     diplomaInput.type = 'text';
-    diplomaInput.name = 'diploma';
-    diplomaInput.id = 'diploma';
+    diplomaInput.name = `diploma+${educationList.length}`;
+    diplomaInput.id = `diploma+${educationList.length}`;
 
     var startLabel = document.createElement('label');
-    startLabel.for = 'schoolStartData';
+    startLabel.htmlFor = `schoolStartData+${educationList.length}`;
     startLabel.innerHTML = 'Start Date :';
 
     var startInput = document.createElement('input');
     startInput.type = 'date';
-    startInput.name = 'schoolStartData';
-    startInput.id = 'schoolStartData';
+    startInput.name = `schoolStartData+${educationList.length}`;
+    startInput.id = `schoolStartData+${educationList.length}`;
 
     var endLabel = document.createElement('label');
-    endLabel.for = 'schoolEndData';
+    endLabel.htmlFor = `schoolEndData+${educationList.length}`;
     endLabel.innerHTML = 'End Date :';
 
     var endInput = document.createElement('input');
     endInput.type = 'date';
-    endInput.name = 'schoolEndData';
-    endInput.id = 'schoolEndData';
+    endInput.name = `schoolEndData+${educationList.length}`;
+    endInput.id = `schoolEndData+${educationList.length}`;
 
     var deleteButton = document.createElement('button');
+    deleteButton.innerHTML = "Delete";
+    deleteButton.addEventListener("click", () => {
+        if(educationList.includes(itemDiv.id)) {
+            var index = educationList.indexOf(itemDiv.id);
+            educationList.splice(index, 1);
+        }
+
+        document.getElementById('educations-container').removeChild(itemDiv);
+    });
 
     itemDiv.appendChild(schoolLabel);
     itemDiv.appendChild(schoolInput);
@@ -66,32 +73,47 @@ function addEducation(event) {
     educationList.push(itemDiv.id);
 }
 
-function addItem(event, isSkill = true) {
-    event.preventDefault();
-    
+function addItem(isSkill) {
     var itemDiv = document.createElement('div');
     itemDiv.className = 'form-item';
     itemDiv.id = isSkill ? `${skillList.length}` : `${languageList.length}`;
 
     var nameLabel = document.createElement('label');
-    nameLabel.for = isSkill ? 'skill' : 'language';
+    nameLabel.htmlFor = isSkill ? `skill+${skillList.length}` : `language+${languageList.length}`;
     nameLabel.innerHTML = isSkill ? 'Skill :' : 'Language :';
 
     var nameInput = document.createElement('input');
     nameInput.type = 'text';
-    nameInput.name = isSkill ? 'skill' : 'language';
-    nameInput.id = isSkill ? 'skill' : 'language';
+    nameInput.name = isSkill ? `skill+${skillList.length}` : `language+${languageList.length}`;
+    nameInput.id = isSkill ? `skill+${skillList.length}` : `language+${languageList.length}`;
 
     var levelLabel = document.createElement('label');
-    levelLabel.for = isSkill ? 'skillLevel' : 'languageLevel';
+    levelLabel.htmlFor = isSkill ? `skillLevel+${skillList.length}` : `languageLevel+${languageList.length}`;
     levelLabel.innerHTML = 'Level :';
 
     var levelInput = document.createElement('input');
     levelInput.type = 'text';
-    levelInput.name = isSkill ? 'skillLevel' : 'languageLevel';
-    levelInput.id = isSkill ? 'skillLevel' : 'languageLevel';
+    levelInput.name = isSkill ? `skillLevel+${skillList.length}` : `languageLevel+${languageList.length}`;
+    levelInput.id = isSkill ? `skillLevel+${skillList.length}` : `languageLevel+${languageList.length}`;
 
     var deleteButton = document.createElement('button');
+    deleteButton.innerHTML = "Delete";
+    deleteButton.addEventListener("click", () => {
+        if(isSkill) {
+            if(skillList.includes(itemDiv.id)) {
+                var index = skillList.indexOf(itemDiv.id);
+                skillList.splice(index, 1);
+            }
+        } else {
+            if(languageList.includes(itemDiv.id)) {
+                var index = languageList.indexOf(itemDiv.id);
+                languageList.splice(index, 1);
+            }
+        }
+
+        var container = isSkill ? document.getElementById('skills-container') : document.getElementById('languages-container');
+        container.removeChild(itemDiv);
+    })
 
     itemDiv.appendChild(nameLabel);
     itemDiv.appendChild(nameInput);
@@ -109,5 +131,21 @@ function addItem(event, isSkill = true) {
     }
 }
 
-langButton.addEventListener("click", () => addItem(false));
-skillButton.addEventListener("click", () => addItem(true));
+educButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    addEducation();
+});
+langButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    addItem(false);
+});
+skillButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    addItem(true);
+});
+
+document.getElementById('top-button').addEventListener("click", (event) => {
+    event.preventDefault();
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+});
