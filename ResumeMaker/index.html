@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="style.css" rel="stylesheet">
+        <title>Resume Maker</title>
+    </head>
+    <body>
+        <header>
+            <h1>Resume Maker</h1>
+            <p>Fill out the various forms to create your resume. Once you've completed your resume, 
+                download the PDF version and enjoy a code-created resume!</p>
+        </header>
+        <main>
+            <div id="form-container">
+                <form action="" method="get" class="form-resume">
+                    <div class="user-informations">
+                        <h2>Your basic informations</h2>
+                        <div class="form-item">
+                            <label for="firstName">First Name :</label>
+                            <input type="text" name="firstName" id="firstName" required />
+                        </div>
+                        <div class="form-item">
+                            <label for="lastName">Last Name :</label>
+                            <input type="text" name="lastName" id="lastName" required />
+                        </div>
+                        <div class="form-item">
+                            <label for="email">Email address :</label>
+                            <input type="email" name="email" id="email" required />
+                        </div>
+                        <div class="form-item">
+                            <label for="telephone">Telephone Number :</label>
+                            <input type="tel" name="telephone" id="telephone" required />
+                        </div>
+                        <div class="form-item">
+                            <label for="birthdate">Birthdate :</label>
+                            <input type="date" name="birthdate" id="birthdate" required />
+                        </div>
+                    </div>
+                    <div class="user-informations">
+                        <h2>Educations</h2>
+                        <div id="educations-container">
+                            <div class="form-item">
+                                <label for="schoolName">School Name :</label>
+                                <input type="text" name="schoolName" id="schoolName" />
+                                <label for="diploma">Diploma :</label>
+                                <input type="text" name="diploma" id="diploma" />
+                                <label for="schoolStartData">Start Date :</label>
+                                <input type="date" name="schoolStartData" id="schoolStartData" />
+                                <label for="schoolEndData">End Date :</label>
+                                <input type="date" name="schoolEndData" id="schoolEndData" />
+                            </div>
+                        </div>
+                        <button id="addEducationButton">Add an education</button>
+                    </div>
+                    <div class="user-informations">
+                        <h2>Languages</h2>
+                        <div id="languages-container">
+                            <div class="form-item">
+                                <label for="language">Language :</label>
+                                <input type="text" name="language" id="language" />
+                                <label for="level">Level :</label>
+                                <input type="text" name="level" id="level" />
+                            </div>
+                        </div>
+                        <button id="addLanguageButton">Add a language</button>
+                    </div>
+                    <div class="user-informations">
+                        <h2>Skills</h2>
+                        <div id="skills-container">
+                            <div class="form-item">
+                                <label for="skill">Skill :</label>
+                                <input type="text" name="skill" id="skill" />
+                                <label for="skillLevel">Level :</label>
+                                <input type="text" name="skillLevel" id="skillLevel" />
+                            </div>
+                        </div>
+                        <button id="addSkillButton">Add a skill</button>
+                    </div>
+                    <div class="user-informations">
+                        <h2>Sites</h2>
+                        <div class="form-item">
+                            <label for="linkedin">Linkedin :</label>
+                            <input type="url" name="linkedin" id="linkedin" />
+                            <label for="website">Website :</label>
+                            <input type="url" name="website" id="website" />
+                            <label for="github">Github :</label>
+                            <input type="url" name="github" id="github" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </main>
+        <footer>
+            <button>Save your resume</button>
+            <button>Back to the top</button>
+        </footer>
+    </body>
+</html>

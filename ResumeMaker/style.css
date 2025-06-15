@@ -1,0 +1,46 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: Helvetica, sans-serif;
+}
+body {
+    margin: auto;
+    width: 75%;
+    text-align: center;
+    background-color: lightgray;
+    color: darkblue;
+}
+
+#form-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+.user-informations {
+    border: 2px solid cornflowerblue;
+    border-radius: 15px;
+    margin: 20px auto;
+    padding: 25px;
+    text-align: left;
+}
+.form-item {
+    background-color: white;
+    border: 2px solid cornflowerblue;
+    border-radius: 15px;
+    margin: 10px;
+    padding: 10px;
+}
+
+footer {
+    display: flex;
+    justify-content: space-around;
+    height: 40px;
+}
+footer button {
+    padding: 10px;
+    color: darkblue;
+    background: cornflowerblue;
+    border: none;
+    border-radius: 15px;
+    font-size: 16px;
+}
